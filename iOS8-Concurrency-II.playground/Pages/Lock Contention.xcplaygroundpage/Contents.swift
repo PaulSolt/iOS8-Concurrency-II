@@ -40,4 +40,34 @@ var endTime = Date()
 var elapsedTime = endTime.timeIntervalSinceReferenceDate - startTime.timeIntervalSinceReferenceDate
 print("Time elapsed to add \(numberOfIterations): \(elapsedTime) seconds")
 
+
+// Test with DispatchQueue
+
+startTime = Date()
+
+let serialQueue = DispatchQueue(label: "Serial Queue to Test Performance")
+
+
+print("Start2")
+for _ in 0 ..< numberOfIterations {
+    group.enter()   // entering the field trip destination
+    
+    // Lock vs. DispatchQueue
+    serialQueue.sync {
+        sharedResource += 1
+    }
+    
+    group.leave()   // get on the bus to go home
+}
+
+print("Waiting2")
+group.wait()        // wait until all the kids are on the bus
+
+
+endTime = Date()
+elapsedTime = endTime.timeIntervalSinceReferenceDate - startTime.timeIntervalSinceReferenceDate
+print("Time elapsed to add \(numberOfIterations): \(elapsedTime) seconds")
+
+
+
 //: [Next](@next)
