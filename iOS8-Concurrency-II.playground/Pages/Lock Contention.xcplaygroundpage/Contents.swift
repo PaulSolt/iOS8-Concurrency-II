@@ -38,7 +38,7 @@ group.wait()        // wait until all the kids are on the bus
 
 var endTime = Date()
 var elapsedTime = endTime.timeIntervalSinceReferenceDate - startTime.timeIntervalSinceReferenceDate
-print("Time elapsed to add \(numberOfIterations): \(elapsedTime) seconds")
+print("Lock Time elapsed to add \(numberOfIterations): \(elapsedTime) seconds")
 
 
 // Test with DispatchQueue
@@ -66,7 +66,7 @@ group.wait()        // wait until all the kids are on the bus
 
 endTime = Date()
 elapsedTime = endTime.timeIntervalSinceReferenceDate - startTime.timeIntervalSinceReferenceDate
-print("Time elapsed to add \(numberOfIterations): \(elapsedTime) seconds")
+print("Queue Time elapsed to add \(numberOfIterations): \(elapsedTime) seconds")
 
 
 
